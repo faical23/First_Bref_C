@@ -31,7 +31,7 @@
             int vote[v];
             for(int i = 0 ; i < v; i++)
                 {
-                    printf("ur have this presedent vote in ur presedent prefer : \n");
+                    printf("ur have this presedent vote in ur presedent prefer : \n");  
                     for(int i = 0 ; i < N; i++)
                         {
                             int k = i+1;  // for start in 1
@@ -41,12 +41,12 @@
                     scanf("%i" , &vote[i]);
                 }
             
-            /// show les vote
-            printf("this is all vote aviable :");
-            for(int i = 0 ; i < v ; i++)
-            {
+        /// show les vote
+        printf("this is all vote aviable :");
+        for(int i = 0 ; i < v ; i++)
+        {
                 printf("%i - " , vote[i]);
-            }
+        }
 
 
     }

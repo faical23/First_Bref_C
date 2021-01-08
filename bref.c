@@ -1,8 +1,5 @@
 #include<stdio.h>
 
-int main()
-{
-
     void vote_presedent()
     {
         
@@ -13,44 +10,49 @@ int main()
         // arrays of voteur
         char *voteur[v];
 
-        //// add les presedent
+        //// partie add les presedent
         
         for(int i = 0 ; i < N ; i++)
         {
             printf("add presedent : ");
             scanf("%s" , &presedent[i]);
         }
-        
-        printf("all presedent is : \n");
-        
-        for(int j = 0 ; j < N ; j++)
-        {
-            printf("presedent %i => %s \n" , j , &presedent[j] );
-        }
-   
-    
-        ///// add voteur 
+
+        ///// partie add voteur 
 
         for(int i = 0 ; i < v; i++)
         {
             printf("add voteur : ");
             scanf("%s" , &voteur[i]);
         }
-        
-        printf("all CIN is : \n");
-        
-        for(int j = 0 ; j < v ; j++)
-        {
-            printf("les CIN des voteur %i => %s \n" , j , &voteur[j]);
-        }
-
-
+      
         ///// partie de vote 
-        
-        
-        
+
+            int *vote[v];
+            for(int i = 0 ; i < v; i++)
+                {
+                    printf("ur have this presedent vote in ur presedent prefer :");
+                    for(int i = 0 ; i < N; i++)
+                        {
+                            printf("%s - " , &presedent[i]);
+                        }
+                    printf("\n ur CIN is : %s \n" , &voteur[i]);
+                    scanf("%s" , &vote[i]);
+                }
+            
+            /// show les vote
+            printf("this is all vote aviable :");
+            for(int i = 0 ; i < v ; i++)
+            {
+                printf("%s - " , &vote[i]);
+            }
+
 
     }
+int main()
+{
+
+
 
     vote_presedent();
 

@@ -1,1 +1,3 @@
-int vote[v];
+
+int main()
+{

@@ -27,7 +27,6 @@
         /////: partie de premier vote
 
                 int vote[v]; /// arrays of stocking les vote
-                int test[N];
                 for(int i = 0 ; i < v; i++)
                 {
                     printf("ur have this presedent vote in ur presedent  : \n");  
@@ -38,9 +37,14 @@
                         }
                     printf("\n\n\n ur CIN is : %s  chose number of ur presedent  ?  : " , voteur[i]);
                     scanf("%i" , &vote[i]); ///  stockage des vote in arrays vote[]
-                    scanf("%i" ,  );
+
+
                 }
 
+                for(int i = 0 ; i < v; i++)
+                {
+                    printf("- %i -" , vote[i]);
+                }
 
  /*     
         /// show les vote

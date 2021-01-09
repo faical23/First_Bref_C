@@ -1,1 +1,1 @@
-j
+int vote[v];

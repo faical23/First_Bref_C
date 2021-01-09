@@ -44,6 +44,7 @@
         /// show les vote
         int n = 1;
         int size = v;
+        int r = 0;
         printf("this is all vote aviable :");
         for(int i = 0 ; i < size ; i++)
         {
@@ -66,10 +67,14 @@
                 }
             }
             printf("%i - %i : ", n , vote[i]);
-            n=1;  
-      }
+            n = 1;
 
+        }
+                
     }
+
+
+
 int main()
 {
 

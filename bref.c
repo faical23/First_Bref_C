@@ -24,9 +24,10 @@
             scanf("%s" , voteur[i]); //// stockage les voteur in arrays presedent[]
         }
       
-        ///// partie de premier vote
+        /////: partie de premier vote
 
-                int vote[v];
+                int vote[v]; /// arrays of stocking les vote
+                int test[N];
                 for(int i = 0 ; i < v; i++)
                 {
                     printf("ur have this presedent vote in ur presedent  : \n");  
@@ -36,12 +37,14 @@
                             printf("%i ==> %s\n" , k , presedent[i]); /// chaque loop we show hem all presedent
                         }
                     printf("\n\n\n ur CIN is : %s  chose number of ur presedent  ?  : " , voteur[i]);
-                    scanf("%i" , &vote[i]); /// stockage des vote in arrays vote[]
+                    scanf("%i" , &vote[i]); ///  stockage des vote in arrays vote[]
+                    scanf("%i" ,  );
                 }
 
 
-      
+ /*     
         /// show les vote
+
         int stockage_number_vote[N];  // arrays for stockage total of vote evvery presedent
         int n = 1; /// pour strted from 1 if n++ because we have a problem if started with 0
         int size = v; // pour don't touch v
@@ -71,6 +74,12 @@
             n = 1;
         }
 
+            for(int i = 0 ; i <N ;i++)
+            {
+                printf("- %i -",stockage_number_vote[i]); // show all hvote we have
+            }
+            printf("\n");
+
         for(int i = 0 ; i <N ;i++)
         {
             printf("%s number vote : %i \n",presedent[i] , stockage_number_vote[i]); // show all presedent with her votes
@@ -88,11 +97,16 @@
                 if(stockage_number_vote[i] < mn) /// we do comparaison between this arrays and show the minnumun 
                 {
                     mn = stockage_number_vote[i];
-                    index = i;
+                    index = i; // the index he incrument
                 }
             }
             printf("\n");
             printf("Minimum vote presedent  is %i and the presedent weshould removeted is  : %s", mn , presedent[index]);
+            printf("\n");
+
+
+*/
+
                  
     }
 

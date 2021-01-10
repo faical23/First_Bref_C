@@ -116,7 +116,7 @@
                                 printf("\n");
                                 printf("presedent has a vote less than 15%% is %s and the index of this presedent  is %i " , presedent[index_presedent_delete],index_presedent_delete);
                                 printf("\n");
-                                delete_presedent[z] = index_presedent_delete;
+                                delete_presedent[z] = index_presedent_delete; // stockage index of deleted in arrays
                                 z++;
                             }
                         }
@@ -126,25 +126,23 @@
 
             parte_vote_1();
             printf("\n");
-
+            /// show all index deleted 
             for(int i = 0 ;i < z ; i++)
             {
                 printf("index  %i \n" , delete_presedent[i]);
             }
+            
+            /// deted the presedent by index of avery presedent
 
-            printf("the presedent after removed : \n");
-
-                /* Copy next element value to current element */
-                for(int i = pos; i<size; i++)
+            (int i = 0 ; i < z ; i++)
+            {
+                for(int k = delete_presedent[i] ; k < N ; k++)
                 {
-                    for(int i = pos; i<size; i++)
-                    {
-                        arr[i] = arr[i + 1];
-                    }
-                    arr[i] = arr[i + 1];
+                    presedent[k] = presedent[k + 1];
                 }
-                /* Decrement array size by 1 */
-                size--;
+                N--;
+            }
+
 
     }
 

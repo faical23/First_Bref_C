@@ -4,7 +4,7 @@
     {
 
         
-        char presedent[N][30]; // arrys of presedent
+        char *presedent[N][30]; // arrys of presedent
         char voteur[v][30];  // arrays of voteur
         char starting[N]; //// arrays of 0 vote a every presedent
         int vote[v]; /// arrays of stocking les vote of voteur
@@ -18,7 +18,7 @@
         for(int i = 0 ; i < N ; i++)
         {
             printf("add presedent : ");
-            scanf("%s" , presedent[i]); //// stockage les presedent in arrays presedent[]
+            scanf("%s" , &presedent[i]); //// stockage les presedent in arrays presedent[]
             starting[i]=0;
         }
 
@@ -41,7 +41,7 @@
                     for(int i = 0 ; i < N; i++)
                         {
                             int k = i+1;  // for start in 1
-                            printf("%i ==> %s\n" , k , presedent[i]); /// chaque loop we show hem all presedent
+                            printf("%i ==> %s\n" , k , &presedent[i]); /// chaque loop we show hem all presedent
                         }
                     printf("\n\n\n ur CIN is : %s  chose number of ur presedent  ?  : " , voteur[i]);
                    scanf("%i" , &vote[i]); ///  stockage des vote in arrays vote[]
@@ -64,7 +64,7 @@
                 printf("\nall vote of every presedent\n");
                 for(int i = 0 ; i < N; i++)
                 {
-                    printf("%s  -> %i \n" , presedent[i], starting[i]);
+                    printf("%s  -> %i \n" , &presedent[i], starting[i]);
                 }
 
                 /// show les vote pour percentage % of every presedent
@@ -73,7 +73,7 @@
                 for(int i = 0 ; i < N; i++)
                 {
                     result[i] = (float)starting[i]/v*100;
-                    printf("%s  -> %.2f%% \n" , presedent[i], result[i]);
+                    printf("%s  -> %.2f%% \n" , &presedent[i], result[i]);
                 }
 
       /*  fin deletet part */
@@ -114,7 +114,7 @@
                             {
                                 index_presedent_delete = i; // the index he incrument
                                 printf("\n");
-                                printf("presedent has a vote less than 15%% is %s and the index of this presedent  is %i " , presedent[index_presedent_delete],index_presedent_delete);
+                                printf("presedent has a vote less than 15%% is %s and the index of this presedent  is %i " , &presedent[index_presedent_delete],index_presedent_delete);
                                 printf("\n");
                                 delete_presedent[z] = index_presedent_delete; // stockage index of deleted in arrays
                                 z++;
@@ -132,23 +132,22 @@
                 printf("index  %i \n" , delete_presedent[i]);
             }
             
-            /// deleted the presedent by index of avery presedent
+            /// deted the presedent by index of avery presedent
 /*
-            for(int i = 0; i < z ;i++)
+            for(int i = 0 ; i < z ; i++)
             {
-                for(int j = delete_presedent[i] ; j < N ; j++)
+                for(int k = delete_presedent[i] ; k < N; k++)
                 {
-                    presedent[j][30] = presedent[j+1][30];
+                    presedent[k][30]=presedent[k+1][30];
                 }
                 N--;
-                delete_presedent[i+1]--;
+                delete_presedent[i]--;
             }
 
-            printf("all presedent after remove is: \n " );
-
-            for(int i = 0; i < N ;i++)
+            printf("\n the presedent after delete is : ");
+            for(int i=0; i<N; i++)
             {
-                printf("%s \n" , presedent[i]);
+                printf("%s ", presedent[i]);
             }
 */
     }
@@ -157,6 +156,7 @@
 
 int main()
 {
+
 
 
     vote_presedent(6,12);

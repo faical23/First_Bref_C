@@ -3,17 +3,15 @@
     void vote_presedent(int N , int v)
     {
 
-        // arrys of presedent
-        char presedent[N][30];
-        // arrays of voteur
-        char voteur[v][30];
-        //// arrays of 0 vote a every presedent
-        char starting[N];
-        int vote[v]; /// arrays of stocking les vote
+        
+        char presedent[N][30]; // arrys of presedent
+        char voteur[v][30];  // arrays of voteur
+        char starting[N]; //// arrays of 0 vote a every presedent
+        int vote[v]; /// arrays of stocking les vote of voteur
         int index = 0;  /// variable stocky every vote a chaque loops.
         float result[N]; /// stockage OF EVERY PERCENTAGE OF PRESEDENT
-        int z = 0;
-
+        int z = 0; /// 
+        int delete_presedent[z]; /// stockage index of presedent we should deleted
 
         //// partie add les presedent
         
@@ -118,27 +116,35 @@
                                 printf("\n");
                                 printf("presedent has a vote less than 15%% is %s and the index of this presedent  is %i " , presedent[index_presedent_delete],index_presedent_delete);
                                 printf("\n");
-                                /* Copy next element value to current element */
-                                presedent[index_presedent_delete ][50] = presedent[index_presedent_delete  + 1][50];
-                                /* Decrement array size by 1 */
+                                delete_presedent[z] = index_presedent_delete;
                                 z++;
-
                             }
                         }
 
                     }
             }
 
-            printf("\n  remove %i presedent in the first round \n",z);
-            N=N-z; // z = number of presedent we delete
-            printf("w have now this presedent : \n ");
-            for(int i = 0 ; i < N ; i ++)
-            {
-                printf("%i\n" ,presedent[i]);
-            }
             parte_vote_1();
+            printf("\n");
 
+            for(int i = 0 ;i < z ; i++)
+            {
+                printf("index  %i \n" , delete_presedent[i]);
+            }
 
+            printf("the presedent after removed : \n");
+
+                /* Copy next element value to current element */
+                for(int i = pos; i<size; i++)
+                {
+                    for(int i = pos; i<size; i++)
+                    {
+                        arr[i] = arr[i + 1];
+                    }
+                    arr[i] = arr[i + 1];
+                }
+                /* Decrement array size by 1 */
+                size--;
 
     }
 

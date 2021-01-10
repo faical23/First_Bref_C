@@ -106,18 +106,18 @@
                         /// her we remove the presedent he has less vote and started new vote
                         /// we should desincrument N
                         //// script show index of the presedent we should removeted in the arrays
-                        float mn;
+                        //float mn;
                         int index_presedent_delete = 0;
-                        mn = result[0]; /// mn le prmier value in rhis arrays
+                       // mn = result[0]; /// mn le prmier value in rhis arrays
                         for(int i=1; i < N; i++)
                         {
 
-                            if(result[i] < 15) /// we do comparaison between this arrays and show the minnumun 
+                            if(result[i] < 15) /// we SHOW if the result of vote every presedent is less than 15%
                             {
-                                mn = result[i];
+                                //mn = result[i];
                                 index_presedent_delete = i; // the index he incrument
                                 printf("\n");
-                                printf("Minimum vote presedent  is %.2f and the presedent we should removeted is : %s and index of this presedent is: %i", mn , presedent[index_presedent_delete],index_presedent_delete);
+                                printf("presedent has a vote less than 15%% is %s and the index of this presedent  is %i " , presedent[index_presedent_delete],index_presedent_delete);
                                 printf("\n");
                             }
                         }

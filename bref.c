@@ -68,14 +68,15 @@
 
                 /// show les vote pour percentage % of every presedent
 
+                float result[N];
                  printf("\nles perentage vote a chaque presedent : \n");
                 for(int i = 0 ; i < N; i++)
                 {
-                    float result = (float)starting[i]/v*100;
-                    printf("%s  -> %.2f%% \n" , presedent[i], result);
+                    result[i] = (float)starting[i]/v*100;
+                    printf("%s  -> %.2f%% \n" , presedent[i], result[i]);
                 }
 
-        /* fin deletet part */
+      /*  fin deletet part */
 
                     /// show if all vote its egale or not
 
@@ -105,21 +106,22 @@
                         /// her we remove the presedent he has less vote and started new vote
                         /// we should desincrument N
                         //// script show index of the presedent we should removeted in the arrays
-                        int mn;
+                        float mn;
                         int index_presedent_delete = 0;
-                        mn = starting[0]; /// mn le prmier value in rhis arrays
+                        mn = result[0]; /// mn le prmier value in rhis arrays
                         for(int i=1; i < N; i++)
                         {
 
-                            if(starting[i] < mn) /// we do comparaison between this arrays and show the minnumun 
+                            if(result[i] < 15) /// we do comparaison between this arrays and show the minnumun 
                             {
-                                mn = starting[i];
+                                mn = result[i];
                                 index_presedent_delete = i; // the index he incrument
+                                printf("\n");
+                                printf("Minimum vote presedent  is %.2f and the presedent we should removeted is : %s and index of this presedent is: %i", mn , presedent[index_presedent_delete],index_presedent_delete);
+                                printf("\n");
                             }
                         }
-                        printf("\n");
-                        printf("Minimum vote presedent  is %i and the presedent we should removeted is : %s and index of this presedent is: %i", mn , presedent[index_presedent_delete],index_presedent_delete);
-                        printf("\n");
+
                     }
             }
            

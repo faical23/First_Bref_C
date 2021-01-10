@@ -1,5 +1,4 @@
-tockage total of vote evvery presedent
-        int n = 1; /// pour strted from 1 if n++ because we have a problem if started with 0
-        int size = v; // pour don't touch v
-        printf("this is all vote aviable : \n");
-        for(int i = 0 ; i < size ; i++)
+
+
+                    index = vote[i]-1; /// stockage  vote every voteur in j; and vote[i]-1 = pour starting value-1 IN THE ARRAYS
+                    starting[index]++;          /// go to the index j and incrument the value of arrays starting in this ndex;

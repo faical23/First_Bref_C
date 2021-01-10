@@ -7,6 +7,8 @@
         char presedent[N][30];
         // arrays of voteur
         char voteur[v][30];
+        //// arrays of 0 vote a every presedent
+        char starting[N];
 
         //// partie add les presedent
         
@@ -14,6 +16,7 @@
         {
             printf("add presedent : ");
             scanf("%s" , presedent[i]); //// stockage les presedent in arrays presedent[]
+            starting[i]=0;
         }
 
         ///// partie add voteur 
@@ -27,6 +30,7 @@
         /////: partie de premier vote
 
                 int vote[v]; /// arrays of stocking les vote
+                int j = 0;
                 for(int i = 0 ; i < v; i++)
                 {
                     printf("ur have this presedent vote in ur presedent  : \n");  
@@ -38,14 +42,23 @@
                     printf("\n\n\n ur CIN is : %s  chose number of ur presedent  ?  : " , voteur[i]);
                     scanf("%i" , &vote[i]); ///  stockage des vote in arrays vote[]
 
+                    j = vote[i]-1; /// stockage  vote every voteur in j; and vote[i]-1 = pour starting value-1 IN THE ARRAYS
+                    starting[j]++;          /// go to the index j and incrument the value of arrays starting in this ndex;
 
                 }
-
+                // show all vote
                 for(int i = 0 ; i < v; i++)
                 {
                     printf("- %i -" , vote[i]);
                 }
-
+                // show all vote of evevry presedent
+                printf("\nall vote of every presedent\n");
+                for(int i = 0 ; i < N; i++)
+                {
+                    printf("%s  -> %i \n" , presedent[i], starting[i]);
+                }
+                    
+                // printf("J   - %i \n" , j);
  /*     
         /// show les vote
 

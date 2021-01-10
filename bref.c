@@ -51,11 +51,13 @@
                 }
 
                 // show all vote we have
+
                 for(int i = 0 ; i < v; i++)
                 {
                     printf("- %i -" , vote[i]);
                 }
                 // show total  vote of evevry presedent
+
                 printf("\nall vote of every presedent\n");
                 for(int i = 0 ; i < N; i++)
                 {
@@ -63,6 +65,7 @@
                 }
 
                 /// show les vote pour percentage % of every presedent
+
                  printf("\nles perentage vote a chaque presedent : \n");
                 for(int i = 0 ; i < N; i++)
                 {
@@ -70,8 +73,39 @@
                     printf("%s  -> %.2f%% \n" , presedent[i], result);
                 }
 
+                    /// show if all vote its egale or not
+
+                    printf("\nshow if les vote is egale or nn \n");
+                    int test_egal=0;                    
+                    for(int i = 0 ; i <N ; i++)
+                    {
+                        int next_vote = i+1;
+                        if(starting[i] == starting[next_vote])
+                        {
+                            test_egal++; ///chaque egal we incrument this value
+                        }
+                        
+                    }
+                    if( test_egal == N-1)
+                    {
+                        //// her we repete the vote because all presedent has the same vote
+                        printf("is egale cuz test_egal = %i  need to repete the vote \n",test_egal);
+                        for(int i = 0 ; i <N ; i++)
+                        {
+                            starting[i] = 0;
+                        }
+                        parte_vote();
+                    }
+                    else{
+                        /// her we remove the presedent he has less vote and started new vote
+                        printf("is not egale cuz  test_egal= %i u should go to the next vote ",test_egal);
+                    }
             }
+           
             parte_vote();
+
+
+
 
 
             
@@ -157,7 +191,7 @@ int main()
 
 
 
-    vote_presedent(6,15);
+    vote_presedent(6,12);
 
     return 0;
 }

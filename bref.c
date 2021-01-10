@@ -12,6 +12,7 @@
         int vote[v]; /// arrays of stocking les vote
         int index = 0;  /// variable stocky every vote a chaque loops.
         float result[N]; /// stockage OF EVERY PERCENTAGE OF PRESEDENT
+        int z = 0;
 
 
         //// partie add les presedent
@@ -108,7 +109,7 @@
                         /// we should desincrument N
                         int index_presedent_delete = 0;
                        // mn = result[0]; /// mn le prmier value in rhis arrays
-                        for(int i=1; i < N; i++)
+                        for(int i = 0; i < N; i++)
                         {
 
                             if(result[i] < 15) /// we SHOW if the result of vote every presedent is less than 15%
@@ -117,17 +118,24 @@
                                 printf("\n");
                                 printf("presedent has a vote less than 15%% is %s and the index of this presedent  is %i " , presedent[index_presedent_delete],index_presedent_delete);
                                 printf("\n");
-                                        for (int i = index_presedent_delete ; i < N ; i++)
-                                        presedent[i][20] = presedent[i+1][20];
-                                        N--;
-                            }
-                            printf("%s\n" ,  presedent[i]);
+                                /* Copy next element value to current element */
+                                presedent[index_presedent_delete ][50] = presedent[index_presedent_delete  + 1][50];
+                                /* Decrement array size by 1 */
+                                z++;
 
+                            }
                         }
 
                     }
             }
-           
+
+            printf("\n  remove %i presedent in the first round \n",z);
+            N=N-z; // z = number of presedent we delete
+            printf("w have now this presedent : \n ");
+            for(int i = 0 ; i < N ; i ++)
+            {
+                printf("%i\n" ,presedent[i]);
+            }
             parte_vote_1();
 
 

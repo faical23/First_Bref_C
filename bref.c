@@ -30,7 +30,7 @@
         /////: partie de premier vote
 
                 int vote[v]; /// arrays of stocking les vote
-                int j = 0;
+                int j = 0;  /// variable stocky every vote a chaque loops.
                 for(int i = 0 ; i < v; i++)
                 {
                     printf("ur have this presedent vote in ur presedent  : \n");  
@@ -40,25 +40,39 @@
                             printf("%i ==> %s\n" , k , presedent[i]); /// chaque loop we show hem all presedent
                         }
                     printf("\n\n\n ur CIN is : %s  chose number of ur presedent  ?  : " , voteur[i]);
-                    scanf("%i" , &vote[i]); ///  stockage des vote in arrays vote[]
+                   scanf("%i" , &vote[i]); ///  stockage des vote in arrays vote[]
 
                     j = vote[i]-1; /// stockage  vote every voteur in j; and vote[i]-1 = pour starting value-1 IN THE ARRAYS
                     starting[j]++;          /// go to the index j and incrument the value of arrays starting in this ndex;
 
                 }
+
                 // show all vote
                 for(int i = 0 ; i < v; i++)
                 {
                     printf("- %i -" , vote[i]);
                 }
-                // show all vote of evevry presedent
+                // show total  vote of evevry presedent
                 printf("\nall vote of every presedent\n");
                 for(int i = 0 ; i < N; i++)
                 {
                     printf("%s  -> %i \n" , presedent[i], starting[i]);
                 }
+
+                /// show les vote pour percentage %
+                 printf("\nles perentage vote a chaque presedent : \n");
+                for(int i = 0 ; i < N; i++)
+                {
+                    float result = (float)starting[i]/v*100;
+                    printf("%s  -> %.2f%% \n" , presedent[i], result);
+                }
+
+
+
+
+
+
                     
-                // printf("J   - %i \n" , j);
  /*     
         /// show les vote
 

@@ -119,6 +119,7 @@
                                 delete_presedent[z] = index_presedent_delete; // stockage index of deleted in arrays
                                 z++;
                             }
+
                         }
 
                     }
@@ -131,6 +132,11 @@
             {
                 printf("index  %i \n" , delete_presedent[i]);
             }
+            for(int i = 0 ;i < N ; i++)
+            {
+                printf("prsedent =>  %s \n" , presedent[i]);
+            }
+
             
             /// deleted the presedent by index of avery presedent
 /*

@@ -12,7 +12,6 @@
         float result[N]; /// stockage OF EVERY PERCENTAGE OF PRESEDENT
         int z = 0; /// 
         int delete_presedent[z]; /// stockage index of presedent we should deleted
-        int s = 0; /// size of new arrays after first vote
 
 
 
@@ -111,6 +110,7 @@
                         int index_presedent_delete = 0;
                         int v = 0;
                        // mn = result[0]; /// mn le prmier value in rhis arrays
+                       
                         for(int i = 0; i < N; i++)
                         {
 
@@ -125,11 +125,8 @@
                                 
                             }
                             
-                            else{
-                                s++; 
-                            }
-                            
                         }
+                        
 
                     }
             }
@@ -143,11 +140,43 @@
                 printf("index  %i \n" , delete_presedent[i]);
             }
             
+
+            for(int i = 0 ; i < N ; i++)
+           {
+               printf("%.2f\n" , result[i]);
+           }
+
             //// make new array without thr presedent we removed in the first votes
- 
-            char new_array[s][30]; /// NEW ARRAYS
-            int x = 0;
-            int index_new_arrays = 0;
+
+            /// NEW ARRAYS
+                int p = 0;
+                char new_array[N][10];
+                int x = 0;
+                int index_new_arrays = 0;
+                while( x < N)
+                {
+                                    
+                    if(result[x] > 15)
+                    {
+                        p++;
+                        for(int i = 0 ; i < 30 ; i++ )
+                        {
+                            new_array[index_new_arrays][i]= presedent[x][i];
+                        }
+                        index_new_arrays++;
+                    }
+                        x++;
+                }
+                printf("les presedent libqaaw : \n");
+                        
+                for(int i = 0 ; i < p ;i++)
+                {
+                    printf("%s\n", new_array[i]);
+                }
+                    printf("p == %i", p);
+
+
+            /*
             while( x < N)
                 {
                     
@@ -162,14 +191,7 @@
                     x++;
                 }
 
-
-
-            printf("\nles presedent libqaaaw : \n");
-            for(int i = 0 ;i < s ; i++)
-            {
-                printf("presedent =>  %s \n" , new_array[i]);
-            }
-            
+            */
 
     }
 

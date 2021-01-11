@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include <stdbool.h> 
 
     void vote_presedent(int N , int v)
     {
@@ -36,7 +37,7 @@
 
             void parte_vote_1()
             {
-
+                //// loops for vote every voteur
                 for(int i = 0 ; i < v; i++)
                 {
                     printf("\n\n\n ur have this presedent vote in ur presedent  : \n");  
@@ -46,7 +47,7 @@
                             printf("%i ==> %s\n" , k , presedent[i]); /// chaque loop we show hem all presedent
                         }
                     printf("\n\n\n ur CIN is : %s  chose number of ur presedent  ?  : " , voteur[i]);
-                   scanf("%i" , &vote[i]); ///  stockage des vote in arrays vote[]
+                    scanf("%i" , &vote[i]); ///  stockage des vote in arrays vote[]
 
                     index = vote[i]-1; /// stockage  vote every voteur in j; and vote[i]-1 = pour starting value-1 IN THE ARRAYS
                     starting[index]++;          /// go to the index j and incrument the value of arrays starting in this ndex;
@@ -61,6 +62,7 @@
                 {
                     printf("- %i -" , vote[i]);
                 }
+
                 // show total  vote of evevry presedent
 
                 printf("\nall vote of every presedent\n");
@@ -80,10 +82,22 @@
 
       /*  fin deletet part */
 
-                    /// show if all vote its egale or not
+                    /// show if all vote its egale or not and show if we have more than one presedent winn
 
                     printf("\nshow if les vote is egale or nn \n");
-                    int test_egal=0;  /// variable incrument if the vote is egal                  
+                    int test_egal=0;  /// variable incrument if the vote is egal  
+                    bool we_have_one_pre_win = false;   /// variable boolean he change to true if we have one pre wi in the first 
+                    
+                    /// show if we have one pre win
+                    for (int i = 0 ; i<N ; i++)
+                    {
+                        if(result[i] == 100.00)
+                        {
+                            we_have_one_pre_win = true;
+                        }
+                    }
+
+                    /// show if we have egalité in vote
                     for(int i = 0 ; i <N ; i++)
                     {
                         int next_vote = i+1;
@@ -93,10 +107,10 @@
                         }
                         
                     }
-                    if( test_egal == N-1)  // N-1 == cuz test_egal he not arrive fin the N
+                    if( test_egal == N-1 || we_have_one_pre_win == true )  // N-1 == cuz test_egal he not arrive fin the N
                     {
                         //// her we repete the vote because all presedent has the same vote
-                        printf("is egale cuz test_egal = %i  need to repete the vote \n",test_egal);
+                        printf("\nles vote its egal or we have one winn u should to rapete the votes : \n");
                         for(int i = 0 ; i <N ; i++)
                         {
                             starting[i] = 0;
@@ -104,11 +118,11 @@
                         parte_vote_1();
                     }
                     else{
-                        printf("is not egale cuz  test_egal= %i u should go to the next vote ",test_egal);
+                        printf("\n les vote is not egale cuz  test_egal= %i u should go to the next vote round ",test_egal);
                         /// her we remove the presedent he has less vote and started new vote
                         /// we should desincrument N
                         int index_presedent_delete = 0;
-                        int v = 0;
+                        //int v = 0;
                        // mn = result[0]; /// mn le prmier value in rhis arrays
                        
                         for(int i = 0; i < N; i++)
@@ -133,32 +147,34 @@
 
             parte_vote_1();
             
+    /*
             printf("\n");
             /// show all index deleted 
             for(int i = 0 ;i < z ; i++)
             {
                 printf("index  %i \n" , delete_presedent[i]);
             }
-            
+    */
+    /*
 
-            for(int i = 0 ; i < N ; i++)
+            for(int i = 0 ; i < N ; i++) 
            {
                printf("%.2f\n" , result[i]);
            }
+    */
 
-            //// make new array without thr presedent we removed in the first votes
+            //// make new array without the presedent we removed in the first votes
 
-            /// NEW ARRAYS
-                int p = 0;
-                char new_array[N][10];
-                int x = 0;
-                int index_new_arrays = 0;
+                int p = 0; /// size of new arrays 
+                char new_array[N][10]; /// make new arrays to stockage all presedent win in the first round 
+                int x = 0; /// for while loop
+                int index_new_arrays = 0; /// first index in the new arrays
                 while( x < N)
                 {
                                     
                     if(result[x] > 15)
                     {
-                        p++;
+                        p++; /// seize of second arrays he is incrument
                         for(int i = 0 ; i < 30 ; i++ )
                         {
                             new_array[index_new_arrays][i]= presedent[x][i];
@@ -176,22 +192,6 @@
                     printf("p == %i", p);
 
 
-            /*
-            while( x < N)
-                {
-                    
-                    if(!(x == delete_presedent[0] ||  x == delete_presedent[1]))
-                    {
-                        for(int i = 0 ; i < 10 ; i++ )
-                        {
-                            new_array[index_new_arrays][i] = presedent[x][i];
-                        }
-                        index_new_arrays++;
-                    }
-                    x++;
-                }
-
-            */
 
     }
 

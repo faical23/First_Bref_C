@@ -35,7 +35,7 @@
       
         /////: partie de premier vote
 
-            void parte_vote_1()
+               void parte_vote_1()
             {
                 //// loops for vote every voteur
                 for(int i = 0 ; i < v; i++)
@@ -147,26 +147,10 @@
 
             parte_vote_1();
             
-    /*
-            printf("\n");
-            /// show all index deleted 
-            for(int i = 0 ;i < z ; i++)
-            {
-                printf("index  %i \n" , delete_presedent[i]);
-            }
-    */
-    /*
-
-            for(int i = 0 ; i < N ; i++) 
-           {
-               printf("%.2f\n" , result[i]);
-           }
-    */
-
             //// make new array without the presedent we removed in the first votes
 
                 int p = 0; /// size of new arrays 
-                char new_array[N][10]; /// make new arrays to stockage all presedent win in the first round 
+                char second_arrays_presedent[N][10]; /// make new arrays to stockage all presedent win in the first round 
                 int x = 0; /// for while loop
                 int index_new_arrays = 0; /// first index in the new arrays
                 while( x < N)
@@ -177,7 +161,7 @@
                         p++; /// seize of second arrays he is incrument
                         for(int i = 0 ; i < 30 ; i++ )
                         {
-                            new_array[index_new_arrays][i]= presedent[x][i];
+                            second_arrays_presedent[index_new_arrays][i]= presedent[x][i];
                         }
                         index_new_arrays++;
                     }
@@ -187,12 +171,55 @@
                         
                 for(int i = 0 ; i < p ;i++)
                 {
-                    printf("%s\n", new_array[i]);
+                    printf("%s\n", second_arrays_presedent[i]);
                 }
                     printf("p == %i", p);
 
 
+                ///// start new round voting
 
+
+                printf("\n\n\n this is the second round of voting  \n\n\n ");
+
+                void parte_vote_2()
+                {
+                    /*
+                        //// for vide the arrays starting
+                        for(int i = 0 ; i <N ; i++)
+                        {
+                            starting[i] = 0;
+                        }
+
+                        //// start second vote
+
+                        for(int i = 0 ; i < v; i++)
+                        {
+                            printf("\n\n\n u have this presedent vote in ur presedent  : \n");  
+                            for(int i = 0 ; i < p ; i++)
+                                {
+                                    int k = i+1;  // for start in 1
+                                    printf("%i ==> %s\n" , k , second_arrays_presedent[i]); /// chaque loop we show hem all presedent
+                                }
+                            printf("\n\n\n ur CIN is : %s  chose number of ur presedent  ?  : " , voteur[i]);
+                            scanf("%i" , &vote[i]); ///  stockage des vote in arrays vote[]
+
+                            index = vote[i]-1; /// stockage  vote every voteur in j; and vote[i]-1 = pour starting value-1 IN THE ARRAYS
+                            starting[index]++;          /// go to the index j and incrument the value of arrays starting in this ndex;
+
+                        }
+
+                        /// show les vote the evevry presedent 
+                        printf("this  votes of evevry presedent in second round ")
+                        for(int i = 0 ; i < p ; i++)
+                        {
+                            printf("%s ---> %i\n" , second_arrays_presedent[i] , starting[i]  );
+                        }
+                        */
+
+                }
+
+
+                parte_vote_2();
     }
 
 

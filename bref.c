@@ -11,8 +11,12 @@
         int vote[v]; /// arrays of stocking les vote of voteur
         int index = 0;  /// variable stocky every vote a chaque loops.
         float result[N]; /// stockage OF EVERY PERCENTAGE OF PRESEDENT
-        int z = 0; /// 
+        int z = 0; ///  stockage size of delete presedent
         int delete_presedent[z]; /// stockage index of presedent we should deleted
+        int p = 0; /// size of new arrays 
+        char second_arrays_presedent[N][10]; /// make new arrays to stockage all presedent win in the first round 
+        int x = 0; /// for while loop
+        int index_new_arrays = 0; /// first index in the new arrays
 
 
 
@@ -33,9 +37,9 @@
             scanf("%s" , voteur[i]); //// stockage les voteur in arrays presedent[]
         }
       
-        /////: partie de premier vote
+        /////: start the first voting
 
-               void parte_vote_1()
+            void parte_vote_1()
             {
                 //// loops for vote every voteur
                 for(int i = 0 ; i < v; i++)
@@ -143,51 +147,45 @@
                         
 
                     }
+                    
+                    while( x < N)
+                    {
+                                        
+                        if(result[x] > 15)
+                        {
+                            p++; /// seize of second arrays he is incrument
+                            for(int i = 0 ; i < 30 ; i++ )
+                            {
+                                second_arrays_presedent[index_new_arrays][i]= presedent[x][i];
+                            }
+                            index_new_arrays++;
+                        }
+                            x++;
+                    }
+                    printf("les presedent libqaaw : \n");
+                            
+                    for(int i = 0 ; i < p ;i++)
+                    {
+                        printf("%s\n", second_arrays_presedent[i]);
+                    }
+                        printf("p == %i", p);
             }
 
             parte_vote_1();
             
-            //// make new array without the presedent we removed in the first votes
-
-                int p = 0; /// size of new arrays 
-                char second_arrays_presedent[N][10]; /// make new arrays to stockage all presedent win in the first round 
-                int x = 0; /// for while loop
-                int index_new_arrays = 0; /// first index in the new arrays
-                while( x < N)
-                {
-                                    
-                    if(result[x] > 15)
-                    {
-                        p++; /// seize of second arrays he is incrument
-                        for(int i = 0 ; i < 30 ; i++ )
-                        {
-                            second_arrays_presedent[index_new_arrays][i]= presedent[x][i];
-                        }
-                        index_new_arrays++;
-                    }
-                        x++;
-                }
-                printf("les presedent libqaaw : \n");
-                        
-                for(int i = 0 ; i < p ;i++)
-                {
-                    printf("%s\n", second_arrays_presedent[i]);
-                }
-                    printf("p == %i", p);
 
 
-                ///// start new round voting
+        ///// start secound round voting
 
 
                 printf("\n\n\n this is the second round of voting  \n\n\n ");
 
                 void parte_vote_2()
                 {
-                    /*
-                        //// for vide the arrays starting
-                        for(int i = 0 ; i <N ; i++)
+                        int stockage_vote[p];
+                        for(int i = 0 ; i < p ; i++)
                         {
-                            starting[i] = 0;
+                            stockage_vote[i]= 0;
                         }
 
                         //// start second vote
@@ -203,18 +201,53 @@
                             printf("\n\n\n ur CIN is : %s  chose number of ur presedent  ?  : " , voteur[i]);
                             scanf("%i" , &vote[i]); ///  stockage des vote in arrays vote[]
 
-                            index = vote[i]-1; /// stockage  vote every voteur in j; and vote[i]-1 = pour starting value-1 IN THE ARRAYS
-                            starting[index]++;          /// go to the index j and incrument the value of arrays starting in this ndex;
+                            index = vote[i]-1; /// stockage  vote every voteur in j; and vote[i]-1 = pour STOCKAGE VOTE value-1 IN THE ARRAYS
+                           stockage_vote[index]++;          /// go to the index j and incrument the value of arrays stOCKAGE VOTE in this ndex;
 
                         }
 
                         /// show les vote the evevry presedent 
-                        printf("this  votes of evevry presedent in second round ")
+                        printf("this  votes of evevry presedent in second round \n\n");
                         for(int i = 0 ; i < p ; i++)
                         {
-                            printf("%s ---> %i\n" , second_arrays_presedent[i] , starting[i]  );
+                            printf("%s ---> %i\n" , second_arrays_presedent[i] ,stockage_vote[i]  );
                         }
-                        */
+
+                        ////show if we have egalite in second round
+                        int test_egal = 0;
+                        for(int i = 0 ; i < p ; i++)
+                        {
+                            int next_vote = i+1;
+                            if(stockage_vote[i] == stockage_vote[next_vote])
+                            {
+                                test_egal++; ///every egal we incrument this value
+                            }
+                        
+                        }
+                        if( test_egal == p-1)
+                        {
+                            parte_vote_2();
+                        }
+                        else{
+                            
+                            //// search the presedent has the min vote
+                            int min = stockage_vote[0];
+                            int index_pre_min = 0;
+                                for(int i = 1; i < p; i++)
+                                {
+                                    if(min > stockage_vote[i])
+                                    {
+                                        min = stockage_vote[i];
+                                        index_pre_min = i;
+                                    }
+                                }
+
+
+                            //// show the presedent lose
+
+                            printf("the presedent lose is --> %s   has index ---> %i" ,second_arrays_presedent[index_pre_min ] , index_pre_min  );
+                        }
+                        
 
                 }
 

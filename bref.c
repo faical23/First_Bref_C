@@ -224,8 +224,18 @@
                             }
                         
                         }
-                        if( test_egal == p-1)
+                        //// show if we have one presedent winn
+                        bool have_one_winn = false; //// boolean change if we have one winner
+                        for(int i = 0 ; i < p ; i++)
                         {
+                            if(stockage_vote[i] == v )
+                            {
+                                 have_one_winn = true;
+                            }
+                        }
+                        if( test_egal == p-1 || have_one_winn == true)
+                        {
+                            printf("\n\n we have a egalaty or we have one winn should repete the voting \n\n ");
                             parte_vote_2();
                         }
                         else{
@@ -244,8 +254,10 @@
 
 
                             //// show the presedent lose
-
+                            printf("\n\n ");
                             printf("the presedent lose is --> %s   has index ---> %i" ,second_arrays_presedent[index_pre_min ] , index_pre_min  );
+                            printf("\n\n");
+
                         }
                         
 

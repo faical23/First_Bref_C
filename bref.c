@@ -12,6 +12,8 @@
         float result[N]; /// stockage OF EVERY PERCENTAGE OF PRESEDENT
         int z = 0; /// 
         int delete_presedent[z]; /// stockage index of presedent we should deleted
+        int s = 0; /// size of new arrays after first vote
+
 
         //// partie add les presedent
         
@@ -119,7 +121,9 @@
                                 delete_presedent[z] = index_presedent_delete; // stockage index of deleted in arrays
                                 z++;
                             }
-
+                            else{
+                                s++; 
+                            }
                         }
 
                     }
@@ -132,11 +136,30 @@
             {
                 printf("index  %i \n" , delete_presedent[i]);
             }
-            for(int i = 0 ;i < N ; i++)
-            {
-                printf("prsedent =>  %s \n" , presedent[i]);
-            }
 
+            //// make new array without thr presedent we removed in the first votes
+            
+            char new_array[s][30]; /// NEW ARRAYS
+            int u = 0;
+            while( u < N)
+            {
+                if(!(u ==  delete_presedent[u]));
+                {
+                    for(int x = 0 ; x <30 ; x++ )
+                    {
+                        new_array[u][x] = presedent[u][x];
+                    }
+                }
+                    
+                u++;
+             
+            }
+            
+            printf("les presedent libqaaaw : \n");
+            for(int i = 0 ;i < s ; i++)
+            {
+                printf("presedent =>  %s \n" , new_array[i]);
+            }
             
             /// deleted the presedent by index of avery presedent
 /*

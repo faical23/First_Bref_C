@@ -15,6 +15,7 @@
         int s = 0; /// size of new arrays after first vote
 
 
+
         //// partie add les presedent
         
         for(int i = 0 ; i < N ; i++)
@@ -108,78 +109,68 @@
                         /// her we remove the presedent he has less vote and started new vote
                         /// we should desincrument N
                         int index_presedent_delete = 0;
+                        int v = 0;
                        // mn = result[0]; /// mn le prmier value in rhis arrays
                         for(int i = 0; i < N; i++)
                         {
 
-                            if(result[i] < 15) /// we SHOW if the result of vote every presedent is less than 15%
-                            {
+                            if( result[i] < 15) /// we SHOW if the result of vote every presedent is less than 15%
+                            {      
                                 index_presedent_delete = i; // the index he incrument
                                 printf("\n");
                                 printf("presedent has a vote less than 15%% is %s and the index of this presedent  is %i " , presedent[index_presedent_delete],index_presedent_delete);
                                 printf("\n");
                                 delete_presedent[z] = index_presedent_delete; // stockage index of deleted in arrays
                                 z++;
+                                
                             }
+                            
                             else{
                                 s++; 
                             }
+                            
                         }
 
                     }
             }
 
             parte_vote_1();
+            
             printf("\n");
             /// show all index deleted 
             for(int i = 0 ;i < z ; i++)
             {
                 printf("index  %i \n" , delete_presedent[i]);
             }
-
+            
             //// make new array without thr presedent we removed in the first votes
-            
+ 
             char new_array[s][30]; /// NEW ARRAYS
-            int u = 0;
-            while( u < N)
-            {
-                if(!(u ==  delete_presedent[u]));
+            int x = 0;
+            int index_new_arrays = 0;
+            while( x < N)
                 {
-                    for(int x = 0 ; x <30 ; x++ )
-                    {
-                        new_array[u][x] = presedent[u][x];
-                    }
-                }
                     
-                u++;
-             
-            }
-            
-            printf("les presedent libqaaaw : \n");
+                    if(!(x == delete_presedent[0] ||  x == delete_presedent[1]))
+                    {
+                        for(int i = 0 ; i < 10 ; i++ )
+                        {
+                            new_array[index_new_arrays][i] = presedent[x][i];
+                        }
+                        index_new_arrays++;
+                    }
+                    x++;
+                }
+
+
+
+            printf("\nles presedent libqaaaw : \n");
             for(int i = 0 ;i < s ; i++)
             {
                 printf("presedent =>  %s \n" , new_array[i]);
             }
             
-            /// deleted the presedent by index of avery presedent
-/*
-            for(int i = 0; i < z ;i++)
-            {
-                for(int j = delete_presedent[i] ; j < N ; j++)
-                {
-                    presedent[j][30] = presedent[j+1][30];
-                }
-                N--;
-                delete_presedent[i+1]--;
-            }
 
-            printf("all presedent after remove is: \n " );
-
-            for(int i = 0; i < N ;i++)
-            {
-                printf("%s \n" , presedent[i]);
-            }
-*/
     }
 
 

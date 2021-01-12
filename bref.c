@@ -158,8 +158,8 @@
                                 printf("\n");
                                 printf("presedent has a vote less than 15%% is %s and the index of this presedent  is %i " , presedent[index_presedent_delete],index_presedent_delete);
                                 printf("\n");
-                                delete_presedent[z] = index_presedent_delete; // stockage index of deleted in arrays
-                                z++;
+                               // delete_presedent[z] = index_presedent_delete; // stockage index of deleted in arrays
+                                //z++;
                                 
                             }
                             
@@ -250,6 +250,7 @@
                         
                         }
                         //// show if we have one presedent winn
+                        /*
                         bool have_one_winn = false; //// boolean change if we have one winner
                         for(int i = 0 ; i < p ; i++)
                         {
@@ -258,9 +259,9 @@
                                  have_one_winn = true;
                             }
                         }
+                        */
 
-
-                        if( test_egal == p-1 || have_one_winn == true )
+                        if( test_egal == p-1 )
                         {
                             printf("\n\n we have a egalaty or we have one winn should repete the voting \n\n ");
                             parte_vote_2();
@@ -386,7 +387,18 @@
                 }                
 
          }
-         parte_vote_3();
+        
+
+        /// work if q > 1 if we have more thn one winn in second round 
+        
+        if( q > 1)
+        {
+            parte_vote_3();
+        }
+        else if( q == 1)
+        {
+            printf("Congratulations the winn is  -----> %s" ,  third_arrays_presedent[0]);
+        }
 
     }
 

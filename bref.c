@@ -379,6 +379,7 @@ int main()
     
     printf("\n\n");
     
+    
     printf("how many  VOTEUR do you have ? -->");
     scanf("%i" , &v);
 

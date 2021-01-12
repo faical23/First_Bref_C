@@ -297,6 +297,54 @@
         //// start the third round voting
          printf("\n\n\n this is the third round of voting  \n\n\n ");
 
+         void parte_vote_3()
+         {
+            int stockage_vote_3[q];
+            for(int i = 0 ; i < q ; i++)
+            {
+                stockage_vote_3[i]= 0;
+            }
+
+            //// start third vote
+
+            for(int i = 0 ; i < v; i++)
+            {
+                printf("\n\n\n u have this presedent vote in ur presedent  : \n");  
+                for(int i = 0 ; i < q ; i++)
+                {
+                    int k = i+1;  // for start in 1
+                    printf("%i ==> %s\n" , k , third_arrays_presedent[i]); /// chaque loop we show hem all presedent
+                }
+                printf("\n\n\n ur CIN is : %s  chose number of ur presedent  ?  : " , voteur[i]);
+                scanf("%i" , &vote[i]); ///  stockage des vote in arrays vote[]
+
+                index = vote[i]-1; /// stockage  vote every voteur in j; and vote[i]-1 = pour STOCKAGE VOTE value-1 IN THE ARRAYS
+                stockage_vote_3[index]++;          /// go to the index j and incrument the value of arrays stOCKAGE VOTE in this ndex;
+
+             }
+
+                // show les vote the evevry presedent 
+                printf("this  votes of evevry presedent in third round \n\n");
+                for(int i = 0 ; i < q ; i++)
+                {
+                    printf("%s ---> %i\n" , third_arrays_presedent[i] ,stockage_vote_3[i]  );
+                }
+
+                /// search presedent has a max of vote
+                int m = stockage_vote[0];
+                int index_pre_min = 0;
+                for(int i = 1; i < p; i++)
+                {
+                    if(min > stockage_vote[i])
+                    {
+                        min = stockage_vote[i];
+                        index_pre_min = i;
+                     }
+                }
+
+         }
+         parte_vote_3();
+
     }
 
 

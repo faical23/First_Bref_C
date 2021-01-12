@@ -15,8 +15,12 @@
         int delete_presedent[z]; /// stockage index of presedent we should deleted
         int p = 0; /// size of new arrays 
         char second_arrays_presedent[N][10]; /// make new arrays to stockage all presedent win in the first round 
-        int x = 0; /// for while loop
-        int index_new_arrays = 0; /// first index in the new arrays
+        int x = 0; /// first while loop
+        int index_new_arrays = 0; /// first index in the new arrays 2
+        char third_arrays_presedent[N][10];
+        int y = 0 ; /// second while loop
+        int index0_third_arrays = 0; /// first index in the new arrays 3
+        int q = 0 ; /// size of third arrays presedent
 
 
 
@@ -178,7 +182,8 @@
         ///// start secound round voting
 
 
-                printf("\n\n\n this is the second round of voting  \n\n\n ");
+          printf("\n\n\n this is the second round of voting  \n\n\n ");
+
 
                 void parte_vote_2()
                 {
@@ -255,16 +260,43 @@
 
                             //// show the presedent lose
                             printf("\n\n ");
-                            printf("the presedent lose is --> %s   has index ---> %i" ,second_arrays_presedent[index_pre_min ] , index_pre_min  );
+                            printf("the presedent lose is --> %s   has index ---> %i in the vote is %i" ,second_arrays_presedent[index_pre_min ] , index_pre_min , min );
                             printf("\n\n");
+
+
+                            ///// make new third arrays presedent with the presedent winns
+                                 printf("the presedent go to the third roun dis :\n\n");
+
+                                while( y < p)
+                                {
+                                    if(!(stockage_vote[y] == min))
+                                    {
+                                        q++; /// seize of second arrays he is incrument
+                                        for(int i = 0 ; i < 30 ; i++ )
+                                        {
+                                            third_arrays_presedent[index0_third_arrays ][i]= second_arrays_presedent[y][i];
+                                        }
+                                        index0_third_arrays ++;
+                                    }
+                                    y++;
+                                }
+                                for(int i = 0 ; i < q ;i++)
+                                {
+                                    printf(" %s \n" , third_arrays_presedent[i]);
+                                }
+                                printf("q --->  %i " , q);
 
                         }
                         
 
                 }
 
-
                 parte_vote_2();
+
+
+        //// start the third round voting
+         printf("\n\n\n this is the third round of voting  \n\n\n ");
+
     }
 
 

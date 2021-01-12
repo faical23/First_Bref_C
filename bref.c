@@ -295,11 +295,11 @@
 
 
         //// start the third round voting
-         printf("\n\n\n this is the third round of voting  \n\n\n ");
+         printf("\n\n this is the third round of voting  \n\n");
 
          void parte_vote_3()
          {
-            int stockage_vote_3[q];
+            int stockage_vote_3[q]; /// stockage les vote
             for(int i = 0 ; i < q ; i++)
             {
                 stockage_vote_3[i]= 0;
@@ -331,16 +331,19 @@
                 }
 
                 /// search presedent has a max of vote
-                int m = stockage_vote[0];
-                int index_pre_min = 0;
-                for(int i = 1; i < p; i++)
+                int max = stockage_vote_3[0]; 
+                int index_pre_max = 0;
+                for(int i = 1; i < q ; i++)
                 {
-                    if(min > stockage_vote[i])
+                    if(max < stockage_vote_3[i])
                     {
-                        min = stockage_vote[i];
-                        index_pre_min = i;
+                        max = stockage_vote_3[i];
+                        index_pre_max = i;
                      }
                 }
+                
+                printf("\n\n\n");
+                printf("Congratulations the presedent win is ---> %s her index is --> %i with vote has is ----> %i" ,third_arrays_presedent[index_pre_max] ,index_pre_max, max);
 
          }
          parte_vote_3();

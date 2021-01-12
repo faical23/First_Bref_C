@@ -117,13 +117,27 @@
                         }
                         
                     }
-                    if( test_egal == N-1 || we_have_one_pre_win == true )  // N-1 == cuz test_egal he not arrive fin the N
+                     ///// make  second arrays without the presedent lose
+                   // int g = 0; //// he is incrument if find percentage more thn 15% and if g > 3 we go to the next 
+
+                        int TEST = 0;
+                        int c = 0;
+                        while(c < N)
+                        {
+                            if(result[c] >= 15.00)
+                            {
+                                TEST++;
+                            }
+                        c++;
+                        }
+
+                    if( test_egal == N-1 || we_have_one_pre_win == true || TEST <= 2)  // N-1 == cuz test_egal he not arrive fin the N
                     {
                         //// her we repete the vote because all presedent has the same vote
-                        printf("\nles vote its egal or we have one winn u should to rapete the votes : \n");
+                        printf("\nles vote its egal or we have one winn  or we have just 2 winn u should to rapete the votes  TEST --> %i: \n" , TEST);
                         for(int i = 0 ; i <N ; i++)
                         {
-                            starting[i] = 0;
+                            starting[i]=0;
                         }
                         parte_vote_1();
                     }
@@ -153,6 +167,7 @@
                         
 
                     }
+                
                     ///// make  second arrays without the presedent lose
                     while( x < N)
                     {
@@ -168,6 +183,7 @@
                         }
                             x++;
                     }
+                
                     printf("les presedent libqaaw : \n");
                             
                     for(int i = 0 ; i < p ;i++)
@@ -175,6 +191,8 @@
                         printf("%s\n", second_arrays_presedent[i]);
                     }
                         printf("p == %i", p);
+                        printf("TEST == %i\n", TEST);
+
             }
 
         parte_vote_1();
@@ -240,7 +258,9 @@
                                  have_one_winn = true;
                             }
                         }
-                        if( test_egal == p-1 || have_one_winn == true)
+
+
+                        if( test_egal == p-1 || have_one_winn == true )
                         {
                             printf("\n\n we have a egalaty or we have one winn should repete the voting \n\n ");
                             parte_vote_2();
@@ -288,10 +308,9 @@
                                 }
                                 printf("q --->  %i " , q);
 
-                        }
-                        
-
+                        }                       
                 }
+
         parte_vote_2();
 
 

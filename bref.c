@@ -43,7 +43,9 @@
       
         /////: start the first voting
 
-            void parte_vote_1()
+        printf("\n\n\n this is the first round of voting  \n\n\n ");
+
+        void parte_vote_1()
             {
                 //// loops for vote every voteur
                 for(int i = 0 ; i < v; i++)
@@ -151,7 +153,7 @@
                         
 
                     }
-                    
+                    ///// make  second arrays without the presedent lose
                     while( x < N)
                     {
                                         
@@ -175,7 +177,7 @@
                         printf("p == %i", p);
             }
 
-            parte_vote_1();
+        parte_vote_1();
             
 
 
@@ -185,7 +187,7 @@
           printf("\n\n\n this is the second round of voting  \n\n\n ");
 
 
-                void parte_vote_2()
+        void parte_vote_2()
                 {
                         int stockage_vote[p];
                         for(int i = 0 ; i < p ; i++)
@@ -290,11 +292,12 @@
                         
 
                 }
-
-                parte_vote_2();
+        parte_vote_2();
 
 
         //// start the third round voting
+
+
          printf("\n\n this is the third round of voting  \n\n");
 
          void parte_vote_3()
@@ -341,9 +344,27 @@
                         index_pre_max = i;
                      }
                 }
+                ///// search if we have egality or 
+                printf("\n\n");
+                int we_have_egal = 0;
+                for(int i = 0 ; i < N ; i++)
+                {
+                    if(stockage_vote_3[i] == max)
+                    {
+                        we_have_egal++;
+                    }
+                }
                 
-                printf("\n\n\n");
-                printf("Congratulations the presedent win is ---> %s her index is --> %i with vote has is ----> %i" ,third_arrays_presedent[index_pre_max] ,index_pre_max, max);
+                if( we_have_egal > 1)
+                {
+                    printf("we have egality we should repete the voting ");
+                    printf("\n\n");
+                    parte_vote_3();
+
+                }
+                else{
+                    printf("Congratulations the presedent win is ---> %s her index is --> %i with vote has is ----> %i" ,third_arrays_presedent[index_pre_max] ,index_pre_max, max);
+                }                
 
          }
          parte_vote_3();
@@ -354,9 +375,18 @@
 
 int main()
 {
+    int N ;
+    int v ;
+    printf("how many  presedent do you have ? -->");
+    scanf("%i" , &N);
+    
+    printf("\n\n");
+    
+    printf("how many  presedent do you have ? -->");
+    scanf("%i" , &v);
 
 
-    vote_presedent(6,12);
+    vote_presedent(N,v);
 
     return 0;
 }
